@@ -15,6 +15,28 @@
 
 <script type="text/javascript">
   // 1. Create a named function that accepts two parameters:
+  console.pring = function(msg){
+    console.log(msg);
+  }
+  var catsInMyHood;
+  var newNeigborsCat;
+
+  function resetCatVariables() {
+    catsInMyHood = ['lucy', 'thor', 'nico'];
+    newNeigborsCat = 'doctor funkenstein';
+  }
+
+  function catPetter(cats, newCat) {
+    console.log(cats.length);
+    cats.push(newCat);
+    console.group('from pring');
+    console.pring(cats.length);
+    console.groupEnd();
+    return cats;
+  }
+  
+  resetCatVariables();
+  catPetter(catsInMyHood, newNeigborsCat);
   //      - a variable that will hold an array
   //      - a variable that will hold a string
   //    Use console.log to print out the length of the array.
@@ -26,24 +48,50 @@
 
   // 2. Copy your named function, but now make it an anonymous function
   //    that you assign to a variable.
+  var anonymousCatPetter = function(cats, newCat) {
+    console.log(cats.length);
+    cats.push(newCat);
+    console.group('via pring');
+    console.pring(cats.length);
+    console.groupEnd();
+    return cats;
+  }
+  
+  resetCatVariables();
+  anonymousCatPetter(catsInMyHood, newNeigborsCat);
 
   // 3. Use console.log() to print out your first (named) function,
   //    and then your second (anonymous) function.
+  
+  resetCatVariables();
+  console.log(catPetter(catsInMyHood,newNeigborsCat));
+
+  resetCatVariables();
+  console.log(anonymousCatPetter(catsInMyHood,newNeigborsCat));
 
   //    What's the difference between the two?
   //    Let's talk about hoisting.
 
   // 4. Call your anonymous function and store the results in another variable.
+  resetCatVariables();
+  var catsFromAnonFunc = anonymousCatPetter;
 
   // 5. Store your anonymous function in another variable name.
-
+  var newAnonymousCatPetter = anonymousCatPetter;
+  
   // 6. Write a function that will sort your array based on string length.
+  resetCatVariables()
+
+  function lengthSorter(array) {
+
+  }
   //      (You can use a named function, or store an anonymous function in
   //       a variable.)
   //    First store one of your arrays in a variable so you have a copy of
   //      the original array.
   //    Then sort your array,
   //    and print both the new and old arrays with console.log().
+
 
 </script>
 </body>
