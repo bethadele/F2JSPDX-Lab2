@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  var srcFiles = ["lab2.js"];
+  var srcFiles = ["lab2/blob.js", "lab2/sort.js", "lab2/universal-translator.js"];
   grunt.initConfig({
     jshint: {
       files: srcFiles,
