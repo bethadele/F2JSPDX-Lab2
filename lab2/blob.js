@@ -25,6 +25,36 @@
  TODO: Next, create an instance of Blob named blob.
 .
 */
+function Blob() {
+  this.peoplePerHour = 1;
+  this.eatTown = function(townPopulation){
+    var townsFolkEaten = 0;
+    var townsFolkRemaining = townPopulation;
+    var totalTimeEating = 0;
+    while (townsFolkEaten < townPopulation) {
+      // each step through should represent a single hour 
+      // so the total time will be:
+      // - the amount of steps it takes to get through the town population 
+      // - plus any fractional time
+      if (this.peoplePerHour > townsFolkRemaining) {
+        // handle the case where you have a fraction of an hour due to blob capacity
+        totalTimeEating += townsFolkRemaining / this.peoplePerHour
+        this.peoplePerHour += townsFolkRemaining;
+        townsFolkEaten += townsFolkRemaining;
+      } else {
+        townsFolkRemaining -= this.peoplePerHour;
+        townsFolkEaten += this.peoplePerHour;
+        totalTimeEating += 1;
+        // the rate of eating people increases by the amount that it can eat in one hour
+        this.peoplePerHour += this.peoplePerHour;
+      }
+
+    }
+    return totalTimeEating;
+  }
+}
+
+var myBlob = new Blob();
 
 var Nowhereville = 0;
 var Dowington = 1000;
@@ -35,13 +65,14 @@ var Portland = 500000;
 // Use the eatTown method and console log result:
 // 1) How log for four different blobs to each eat one of the towns
 
-console.log( new Blob().eatTown(Nowhereville) );
-console.log( new Blob().eatTown(Dowington) );
-console.log( new Blob().eatTown(Smallsville) );
-console.log( new Blob().eatTown(Portland) );
+console.log("Nowhereville: ", new Blob().eatTown(Nowhereville) );
+console.log('Dowington: ', new Blob().eatTown(Dowington) );
+console.log('Smallsville: ', new Blob().eatTown(Smallsville) );
+console.log('Portland: ', new Blob().eatTown(Portland) );
 
 
 // 2) How log for the same blob to sequentially eat all four towns!
+console.log('*** single blob ***');
 var blob = new Blob();
 console.log( blob.eatTown(Nowhereville) );
 console.log( blob.eatTown(Dowington) );
