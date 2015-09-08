@@ -27,18 +27,18 @@
 */
 function Blob() {
   this.peoplePerHour = 1;
-  this.eatTown = function(townPopulation){
+  this.eatTown = function(townPopulation) {
     var townsFolkEaten = 0;
     var townsFolkRemaining = townPopulation;
     var totalTimeEating = 0;
     while (townsFolkEaten < townPopulation) {
-      // each step through should represent a single hour 
+      // each step through should represent a single hour
       // so the total time will be:
-      // - the amount of steps it takes to get through the town population 
+      // - the amount of steps it takes to get through the town population
       // - plus any fractional time
       if (this.peoplePerHour > townsFolkRemaining) {
         // handle the case where you have a fraction of an hour due to blob capacity
-        totalTimeEating += townsFolkRemaining / this.peoplePerHour
+        totalTimeEating += townsFolkRemaining / this.peoplePerHour;
         this.peoplePerHour += townsFolkRemaining;
         townsFolkEaten += townsFolkRemaining;
       } else {
@@ -51,7 +51,7 @@ function Blob() {
 
     }
     return totalTimeEating;
-  }
+  };
 }
 
 var myBlob = new Blob();
@@ -61,21 +61,18 @@ var Dowington = 1000;
 var Smallsville = 5000;
 var Portland = 500000;
 
-
 // Use the eatTown method and console log result:
 // 1) How log for four different blobs to each eat one of the towns
 
 console.log("Nowhereville: ", new Blob().eatTown(Nowhereville) );
-console.log('Dowington: ', new Blob().eatTown(Dowington) );
-console.log('Smallsville: ', new Blob().eatTown(Smallsville) );
-console.log('Portland: ', new Blob().eatTown(Portland) );
-
+console.log("Dowington: ", new Blob().eatTown(Dowington) );
+console.log("Smallsville: ", new Blob().eatTown(Smallsville) );
+console.log("Portland: ", new Blob().eatTown(Portland) );
 
 // 2) How log for the same blob to sequentially eat all four towns!
-console.log('*** single blob ***');
+console.log("*** single blob ***");
 var blob = new Blob();
 console.log( blob.eatTown(Nowhereville) );
 console.log( blob.eatTown(Dowington) );
 console.log( blob.eatTown(Smallsville) );
 console.log( blob.eatTown(Portland) );
-

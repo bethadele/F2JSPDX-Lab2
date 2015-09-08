@@ -9,33 +9,32 @@
 
 function lastLetterSort(stringArray) {
 
-  return stringArray.sort(function(a, b){
+  return stringArray.sort(function(a, b) {
     //TODO: implement me. sort the strings in alphabetical
     // order using their last letter
     // read this: http://www.w3schools.com/jsref/jsref_sort.asp
-    var aLastLetter = a[a.length-1];
-    var bLastLetter = b[b.length-1];
+    var aLastLetter = a[a.length - 1];
+    var bLastLetter = b[b.length - 1];
 
-    if ( aLastLetter < bLastLetter ) return -1;
+    if ( aLastLetter < bLastLetter ) {return -1;}
 
-    if ( aLastLetter === bLastLetter ) return 0;
+    if ( aLastLetter === bLastLetter ) {return 0;}
 
-    if ( aLastLetter > bLastLetter ) return 1;
+    if ( aLastLetter > bLastLetter ) {return 1;}
   });
 }
 
-var sortedArray = lastLetterSort([ 'blue', 'red', 'green' ]);
-console.log(sortedArray)
-assertDeepEqual(sortedArray,[ 'red', 'blue', 'green' ],'array not sorted by last letter');
-
+var sortedArray = lastLetterSort([ "blue", "red", "green" ]);
+console.log(sortedArray);
+assertDeepEqual(sortedArray, [ "red", "blue", "green" ], "array not sorted by last letter");
 
 /* PART 2 */
 
-var arrayOfArrays = [ [ 1, 4, 3 ], [ 6, 2, 3 ], [ 3, 9 ], [ 0, 1 ] ]
+var arrayOfArrays = [ [ 1, 4, 3 ], [ 6, 2, 3 ], [ 3, 9 ], [ 0, 1 ] ];
 
 function sumArray(numberArray) {
   var sum = 0;
-  numberArray.forEach(function(num){
+  numberArray.forEach(function(num) {
     sum += num;
   });
   return sum;
@@ -55,8 +54,7 @@ function sumSort(arrayOfArrays) {
 
 sortedArray = sumSort(arrayOfArrays);
 console.log(sortedArray);
-assertDeepEqual(sortedArray,[[ 0, 1 ], [ 1, 4, 3 ], [ 6, 2, 3 ], [ 3, 9 ]], 'array not sorted by sums');
-
+assertDeepEqual(sortedArray, [ [ 0, 1 ], [ 1, 4, 3 ], [ 6, 2, 3 ], [ 3, 9 ] ], "array not sorted by sums");
 
 // assert methods //
 
@@ -77,9 +75,8 @@ function assertDeepEqual(actual, expected, failureMessage) {
     }
   }
   catch (err) {
-    console.log('assertion failure: ', err,
-                '\nexpected:', expected,
-                '\nactual:', actual);
+    console.log("assertion failure: ", err,
+                "\nexpected:", expected,
+                "\nactual:", actual);
   }
 }
-
